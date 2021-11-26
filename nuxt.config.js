@@ -56,6 +56,6 @@ export default {
   },
 
   router: {
-    base: './',
+    base: '/sdi/',
   },
 }
