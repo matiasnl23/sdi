@@ -1,14 +1,7 @@
 <template>
   <div>
     <b-navbar :mobile-burger="false" wrapper-class="container is-max-desktop">
-      <template #brand>
-        <a href="#" class="nav-logo pt-1 vm">
-          <img src="~/assets/logo/logo_only.png" alt="SDI" />
-          <span class="pl-2 brand-name">
-            Instalaciones eléctricas industriales
-          </span>
-        </a>
-      </template>
+      <template #brand><Logo /></template>
       <template #end>
         <a
           v-for="(contact, idx) in contacts"
@@ -33,8 +26,11 @@
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
+import { useBreakpoints } from '@/hooks/useBreakpoints'
+import Logo from '@/components/Logo.vue'
 
 export default defineComponent({
+  components: { Logo },
   setup() {
     const contacts = [
       {
@@ -47,27 +43,14 @@ export default defineComponent({
       },
     ]
 
-    return { contacts }
+    const { isTouch } = useBreakpoints()
+
+    return { contacts, isTouch }
   },
 })
 </script>
 
 <style>
-.nav-logo {
-  flex-direction: column;
-  display: flex;
-}
-
-.nav-logo .brand-name {
-  font-size: 0.5rem;
-  margin-top: 0.25rem;
-  text-transform: uppercase;
-}
-
-.nav-logo img {
-  max-height: 50px;
-}
-
 .vm {
   display: flex;
   align-items: center;

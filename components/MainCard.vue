@@ -1,5 +1,6 @@
 <template>
   <div class="main-card">
+    <Logo v-if="isMobile" class="mb-4" font-size="1rem" height="150px" shadow />
     <h1
       class="
         title
@@ -29,13 +30,17 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
+import Logo from './Logo.vue'
+import { useBreakpoints } from '@/hooks/useBreakpoints'
 
 export default defineComponent({
+  components: { Logo },
   setup() {
     const whatsappUrl = 'https://api.whatsapp.com/send?phone=541131789264'
     const emailUrl = 'mailto:sd-instalaciones@hotmail.com'
+    const { isMobile } = useBreakpoints()
 
-    return { emailUrl, whatsappUrl }
+    return { emailUrl, isMobile, whatsappUrl }
   },
 })
 </script>
