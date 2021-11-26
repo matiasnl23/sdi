@@ -2,7 +2,7 @@
   <section class="main-section">
     <div class="container is-max-desktop is-flex">
       <div class="columns">
-        <div class="left-section column">
+        <div class="left-section column is-7">
           <h1
             class="
               title
@@ -33,19 +33,44 @@
             Escribir
           </b-button>
         </div>
+
+        <div class="carousel-column column is-5-desktop">
+          <slides />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import Slides from '@/components/Slides.vue'
+
 export default {
   name: 'HomePage',
+  components: {
+    Slides,
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~bulma/sass/utilities/mixins';
+
+.carousel-column {
+  padding: 0 !important;
+}
+
+.container {
+  align-items: center;
+
+  .columns {
+    flex: 1;
+  }
+
+  @include mobile {
+    justify-content: center;
+  }
+}
 
 .main-section {
   display: flex;
@@ -55,22 +80,21 @@ export default {
   height: calc(100vh - 70px);
 }
 
-.container {
-  align-items: center;
-
-  @include mobile {
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 1rem;
-  }
-}
-
 .left-section {
+  align-self: center !important;
+
   .title {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
   }
+
   @include mobile {
     text-align: center;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
   }
 }
 </style>
