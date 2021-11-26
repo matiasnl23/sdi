@@ -3,35 +3,7 @@
     <div class="container is-max-desktop is-flex">
       <div class="columns">
         <div class="left-section column is-7">
-          <h1
-            class="
-              title
-              has-text-white has-text-weight-semibold
-              is-size-2 is-size-4-mobile
-            "
-          >
-            Descubre la diferencia de <br />
-            SDInstalaciones
-          </h1>
-
-          <b-button
-            type="is-primary"
-            tag="a"
-            href="https://api.whatsapp.com/send?phone=541131789264"
-            target="_blank"
-          >
-            <font-awesome-icon :icon="['fab', 'whatsapp']" />
-            Contactar
-          </b-button>
-          <b-button
-            type="is-primary is-light"
-            tag="a"
-            href="mailto:sd-instalaciones@hotmail.com"
-            target="_blank"
-          >
-            <font-awesome-icon :icon="['far', 'envelope']" />
-            Escribir
-          </b-button>
+          <MainCard />
         </div>
 
         <div class="carousel-column column is-5-desktop">
@@ -44,10 +16,12 @@
 
 <script>
 import Slides from '@/components/Slides.vue'
+import MainCard from '@/components/MainCard.vue'
 
 export default {
   name: 'HomePage',
   components: {
+    MainCard,
     Slides,
   },
 }
@@ -90,7 +64,7 @@ export default {
   @include mobile {
     text-align: center;
     position: absolute;
-    top: 70px;
+    top: 40%;
     left: 0;
     bottom: 0;
     right: 0;
