@@ -1,9 +1,15 @@
 <template>
   <section class="main-section">
-    <div class="container is-max-desktop">
+    <div class="container is-max-desktop is-flex">
       <div class="columns">
-        <div class="column title-left">
-          <h1 class="title has-text-white has-text-weight-semibold is-size-2">
+        <div class="left-section column">
+          <h1
+            class="
+              title
+              has-text-white has-text-weight-semibold
+              is-size-2 is-size-4-mobile
+            "
+          >
             Descubre la diferencia de <br />
             SDInstalaciones
           </h1>
@@ -38,9 +44,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '~bulma/sass/utilities/mixins';
+
 .main-section {
-  align-items: center;
   display: flex;
   background-image: url('~/assets/images/1.jpeg');
   background-size: cover;
@@ -48,7 +55,22 @@ export default {
   height: calc(100vh - 70px);
 }
 
-.title {
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+.container {
+  align-items: center;
+
+  @include mobile {
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+}
+
+.left-section {
+  .title {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  }
+  @include mobile {
+    text-align: center;
+  }
 }
 </style>

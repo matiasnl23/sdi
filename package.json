@@ -1,5 +1,5 @@
 {
-  "name": "dsi-frontend",
+  "name": "sdi-frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -30,6 +30,9 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
-    "prettier": "^2.3.2"
+    "fibers": "^5.0.0",
+    "prettier": "^2.3.2",
+    "sass": "^1.43.5",
+    "sass-loader": "10"
   }
 }
