@@ -1,67 +1,71 @@
 <template>
   <div>
-    <b-navbar
-      :mobile-burger="false"
-      wrapper-class="nav-container"
-      type="is-dark"
-    >
+    <b-navbar :mobile-burger="false" wrapper-class="container is-max-desktop">
       <template #brand>
-        <a href="#" class="vm px-2">
-          <font-awesome-icon class="mt-1" icon="at" />
-          <span class="pl-1">email@email.com</span>
+        <a href="#" class="nav-logo pt-1 vm">
+          <img src="~/assets/logo/logo_only.png" alt="SDI" />
+          <span class="pl-2 brand-name">
+            Instalaciones eléctricas industriales
+          </span>
         </a>
       </template>
       <template #end>
         <a
-          href="https://api.whatsapp.com/send?phone=541158593099"
+          v-for="(contact, idx) in contacts"
+          :key="idx"
+          :href="contact.link"
+          target="_blank"
           class="vm pr-2"
         >
           <font-awesome-layers class="fa-2x">
             <font-awesome-icon :icon="['far', 'circle']" />
-            <font-awesome-icon
-              :icon="['fab', 'whatsapp']"
-              transform="shrink-8"
-            />
+            <font-awesome-icon :icon="contact.icon" transform="shrink-8" />
           </font-awesome-layers>
         </a>
       </template>
     </b-navbar>
 
-    <section class="main-content columns">
-      <div class="container column is-10">
-        <Nuxt />
-      </div>
+    <section>
+      <Nuxt />
     </section>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' },
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' },
-        },
-      ],
-    }
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  setup() {
+    const contacts = [
+      {
+        icon: ['fab', 'whatsapp'],
+        link: 'https://api.whatsapp.com/send?phone=541131789264',
+      },
+      {
+        icon: ['fas', 'at'],
+        link: 'mailto:SD-Instalaciones@hotmail.com',
+      },
+    ]
+
+    return { contacts }
   },
-}
+})
 </script>
 
 <style>
-.nav-container {
+.nav-logo {
+  flex-direction: column;
   display: flex;
-  flex: 1;
-  max-width: 900px;
-  margin: 0 auto;
+}
+
+.nav-logo .brand-name {
+  font-size: 0.5rem;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+}
+
+.nav-logo img {
+  max-height: 50px;
 }
 
 .vm {

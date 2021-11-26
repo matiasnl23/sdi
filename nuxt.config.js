@@ -33,6 +33,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/composition-api/module',
     '@nuxtjs/fontawesome',
   ],
 
@@ -48,7 +49,7 @@ export default {
   fontawesome: {
     icons: {
       brands: ['faWhatsapp'],
-      regular: ['faCircle'],
+      regular: ['faCircle', 'faEnvelope'],
       solid: ['faAt'],
     },
   },

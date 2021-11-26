@@ -1,53 +1,54 @@
 <template>
-  <section class="section">
-    <div class="columns is-mobile">
-      <card
-        title="Free"
-        icon="github"
-      >
-        Open source on <a href="https://github.com/buefy/buefy">
-          GitHub
-        </a>
-      </card>
+  <section class="main-section">
+    <div class="container is-max-desktop">
+      <div class="columns">
+        <div class="column title-left">
+          <h1 class="title has-text-white has-text-weight-semibold is-size-2">
+            Descubre la diferencia de <br />
+            SDInstalaciones
+          </h1>
 
-      <card
-        title="Responsive"
-        icon="cellphone-link"
-      >
-        <b class="has-text-grey">
-          Every
-        </b> component is responsive
-      </card>
-
-      <card
-        title="Modern"
-        icon="alert-decagram"
-      >
-        Built with <a href="https://vuejs.org/">
-          Vue.js
-        </a> and <a href="http://bulma.io/">
-          Bulma
-        </a>
-      </card>
-
-      <card
-        title="Lightweight"
-        icon="arrange-bring-to-front"
-      >
-        No other internal dependency
-      </card>
+          <b-button
+            type="is-primary"
+            tag="a"
+            href="https://api.whatsapp.com/send?phone=541131789264"
+            target="_blank"
+          >
+            <font-awesome-icon :icon="['fab', 'whatsapp']" />
+            Contactar
+          </b-button>
+          <b-button
+            type="is-primary is-light"
+            tag="a"
+            href="mailto:sd-instalaciones@hotmail.com"
+            target="_blank"
+          >
+            <font-awesome-icon :icon="['far', 'envelope']" />
+            Escribir
+          </b-button>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import Card from '~/components/Card'
-
 export default {
   name: 'HomePage',
-
-  components: {
-    Card
-  }
 }
 </script>
+
+<style scoped>
+.main-section {
+  align-items: center;
+  display: flex;
+  background-image: url('~/assets/images/1.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 70px);
+}
+
+.title {
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+</style>
