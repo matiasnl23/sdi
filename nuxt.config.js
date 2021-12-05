@@ -54,8 +54,4 @@ export default {
       solid: ['faAt'],
     },
   },
-
-  router: {
-    base: '/sdi/',
-  },
 }
